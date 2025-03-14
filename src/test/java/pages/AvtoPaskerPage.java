@@ -5,10 +5,8 @@ import io.qameta.allure.Step;
 import utils.TestData;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static org.openqa.selenium.bidi.script.LocalValue.setValue;
 
 public class AvtoPaskerPage {
 
@@ -23,10 +21,7 @@ public class AvtoPaskerPage {
     searchCarBrandButton = $(".menu a[href=\"/search/acat\"]"),
     searchCarBrandMenu = $("#acat"),
     inputSearchBrand = $("#brandfilter input[type='text']"),
-    searchBrandResult = $("#block-views-brand-list"),
-    addToCartButton = $("#search-result button[title=\"Добавить в корзину\"]"),
-    cartButton = $(".menu a[href=\"/cart\"]"),
-    cartItem = $("#views-form-commerce-cart-form-default");
+    searchBrandResult = $("#block-views-brand-list");
 
     @Step("Открываем страницу")
     public AvtoPaskerPage openPage() {
@@ -70,17 +65,6 @@ public class AvtoPaskerPage {
         return this;
     }
 
-    @Step("Нажимаем на кнопку 'Добавить в корзину'")
-    public AvtoPaskerPage addToCartButtonClick() {
-        addToCartButton.shouldBe(visible).click();
-        return this;
-    }
-
-    @Step("Переходим в корзину'")
-    public AvtoPaskerPage cartButtonClick() {
-        cartButton.click();
-        return this;
-    }
     @Step("Проверяем результаты поиска по бренду {value}")
     public AvtoPaskerPage checkSearchBrandResult( String value) {
         searchBrandResult.shouldHave(text(value));
@@ -95,12 +79,6 @@ public class AvtoPaskerPage {
     @Step("Проверяем результаты поиска по ведёнными данными {value}")
     public AvtoPaskerPage checkSearchResult( String value) {
         searchResults.shouldHave(text(value));
-        return this;
-    }
-
-    @Step("Проверяем наличие товара с артикулом {value} в корзине")
-    public AvtoPaskerPage checkCartItems( String value) {
-        cartItem.shouldHave(text(value));
         return this;
     }
 }

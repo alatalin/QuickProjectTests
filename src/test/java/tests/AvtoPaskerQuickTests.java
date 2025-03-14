@@ -21,7 +21,6 @@ public class AvtoPaskerQuickTests extends TestBase{
         avtoPaskerPagePage.openPage()
                 .setInputSearchText(testData.article)
                 .checkSearchResult(testData.article);
-
     }
 
     @Test
@@ -34,7 +33,6 @@ public class AvtoPaskerQuickTests extends TestBase{
         avtoPaskerPagePage.openPage()
                 .setInputSearchText(testData.searchText)
                 .checkSearchResult(testData.searchText);
-
     }
 
     @Test
@@ -47,7 +45,6 @@ public class AvtoPaskerQuickTests extends TestBase{
         avtoPaskerPagePage.openPage()
                 .setInputSearchVIN(testData.vin)
                 .checkErrorSearchResult(testData.vin);
-
     }
 
     @Test
