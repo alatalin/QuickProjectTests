@@ -2,13 +2,18 @@ package tests;
 
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
-import pages.AvtoPaskerPage;
+import pages.*;
 import utils.TestData;
 
+@Owner("alatalin")
 @Tag("quicktests")
 public class AvtoPaskerQuickTests extends TestBase{
 
-    private final AvtoPaskerPage avtoPaskerPagePage = new AvtoPaskerPage();
+    private final MainPage mainPage = new MainPage();
+    private final SearchPage searchPage = new SearchPage();
+    private final SearchVinPage searchVinPage = new SearchVinPage();
+    private final BrandSearchPage brandSearchPage = new BrandSearchPage();
+    private final CarBrandSearchPage carBrandSearchPage = new CarBrandSearchPage();
     TestData testData = new TestData();
 
     @Test
@@ -16,11 +21,10 @@ public class AvtoPaskerQuickTests extends TestBase{
     @Tags({
            @Tag("Positive")
     })
-    @Owner("alatalin")
     public void successfulArticleSearchTest() {
-        avtoPaskerPagePage.openPage()
-                .setInputSearchText(testData.article)
-                .checkSearchResult(testData.article);
+        mainPage.openPage()
+                .setInputSearchText(testData.article);
+        searchPage.checkSearchResult(testData.article);
     }
 
     @Test
@@ -28,23 +32,21 @@ public class AvtoPaskerQuickTests extends TestBase{
     @Tags({
             @Tag("Positive")
     })
-    @Owner("alatalin")
     public void successfulTextSearchTest() {
-        avtoPaskerPagePage.openPage()
-                .setInputSearchText(testData.searchText)
-                .checkSearchResult(testData.searchText);
+        mainPage.openPage()
+                .setInputSearchText(testData.searchText);
+        searchPage.checkSearchResult(testData.searchText);
     }
 
     @Test
-    @DisplayName("Поиск по VIN незарегистрированным/авторизованным пользователем")
+    @DisplayName("Поиск по VIN незарегистрированным/неавторизованным пользователем")
     @Tags({
             @Tag("Negative")
     })
-    @Owner("alatalin")
     public void unsuccessfulVINSearchTest() {
-        avtoPaskerPagePage.openPage()
-                .setInputSearchVIN(testData.vin)
-                .checkErrorSearchResult(testData.vin);
+        mainPage.openPage()
+                .setInputSearchVIN(testData.vin);
+        searchVinPage.checkErrorSearchResult(testData.vin);
     }
 
     @Test
@@ -52,24 +54,22 @@ public class AvtoPaskerQuickTests extends TestBase{
     @Tags({
             @Tag("Positive")
     })
-    @Owner("alatalin")
     public void successfulBrandSearchTest() {
-        avtoPaskerPagePage.openPage()
-                .searchBrandButtonClick()
-                .setInputSearchBrand(testData.brand)
-                .checkSearchBrandResult(testData.brand);
+        mainPage.openPage()
+                .searchBrandButtonClick();
+        brandSearchPage.setInputSearchBrand(testData.brand)
+                       .checkSearchBrandResult(testData.brand);
     }
 
     @Test
-    @DisplayName("Поиск по автомобилю незарегистрированным/авторизованным пользователем в каталоге")
+    @DisplayName("Поиск по автомобилю незарегистрированным/неавторизованным пользователем в каталоге")
     @Tags({
             @Tag("Negative")
     })
-    @Owner("alatalin")
     public void unsuccessfulCarBrandSearchTest() {
-        avtoPaskerPagePage.openPage()
-                .searchCarBrandButtonClick()
-                .searchCarBrandMenuClick(testData.carBrand)
-                .checkErrorSearchResult(testData.carBrand);
+        mainPage.openPage()
+                .searchCarBrandButtonClick();
+        carBrandSearchPage.searchCarBrandMenuClick(testData.carBrand);
+        searchVinPage.checkErrorSearchResult(testData.carBrand);
     }
 }
