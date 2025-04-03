@@ -23,8 +23,8 @@ public class AvtoPaskerQuickTests extends TestBase{
     })
     public void successfulArticleSearchTest() {
         mainPage.openPage()
-                .setInputSearchText(testData.article);
-        searchPage.checkSearchResult(testData.article);
+                .setInputSearchText(testData.ARTICLE);
+        searchPage.checkSearchResult(testData.ARTICLE);
     }
 
     @Test
@@ -34,8 +34,8 @@ public class AvtoPaskerQuickTests extends TestBase{
     })
     public void successfulTextSearchTest() {
         mainPage.openPage()
-                .setInputSearchText(testData.searchText);
-        searchPage.checkSearchResult(testData.searchText);
+                .setInputSearchText(testData.SEARCH_TEXT);
+        searchPage.checkSearchResult(testData.SEARCH_TEXT);
     }
 
     @Test
@@ -45,8 +45,8 @@ public class AvtoPaskerQuickTests extends TestBase{
     })
     public void unsuccessfulVINSearchTest() {
         mainPage.openPage()
-                .setInputSearchVIN(testData.vin);
-        searchVinPage.checkErrorSearchResult(testData.vin);
+                .setInputSearchVIN(testData.VIN);
+        searchVinPage.checkErrorSearchResult(testData.VIN);
     }
 
     @Test
@@ -57,8 +57,8 @@ public class AvtoPaskerQuickTests extends TestBase{
     public void successfulBrandSearchTest() {
         mainPage.openPage()
                 .searchBrandButtonClick();
-        brandSearchPage.setInputSearchBrand(testData.brand)
-                       .checkSearchBrandResult(testData.brand);
+        brandSearchPage.setInputSearchBrand(testData.BRAND)
+                       .checkSearchBrandResult(testData.BRAND);
     }
 
     @Test
@@ -69,7 +69,7 @@ public class AvtoPaskerQuickTests extends TestBase{
     public void unsuccessfulCarBrandSearchTest() {
         mainPage.openPage()
                 .searchCarBrandButtonClick();
-        carBrandSearchPage.searchCarBrandMenuClick(testData.carBrand);
-        searchVinPage.checkErrorSearchResult(testData.carBrand);
+        carBrandSearchPage.searchCarBrandMenuClick(testData.CAR_BRAND);
+        searchVinPage.checkErrorSearchResult(testData.CAR_BRAND);
     }
 }

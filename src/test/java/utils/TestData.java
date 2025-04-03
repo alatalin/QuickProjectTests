@@ -2,11 +2,11 @@ package utils;
 
 public class TestData {
 
-    public static final String url = "https://avtopasker.ru";
-    public static final String article = "51483";
-    public static final String searchText = "катушка зажигания";
-    public static final String vin = "XTA210930Y2696785";
-    public static final String brand = "CTR";
-    public static final String carBrand = "ALFA ROMEO";
+    public static final String URL = "https://avtopasker.ru";
+    public static final String ARTICLE = "51483";
+    public static final String SEARCH_TEXT = "катушка зажигания";
+    public static final String VIN = "XTA210930Y2696785";
+    public static final String BRAND = "CTR";
+    public static final String CAR_BRAND = "ALFA ROMEO";
 
 }

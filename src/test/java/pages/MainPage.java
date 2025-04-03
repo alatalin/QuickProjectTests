@@ -18,7 +18,7 @@ public class MainPage {
 
     @Step("Открываем страницу")
     public MainPage openPage() {
-        open(testData.url);
+        open(testData.URL);
         return this;
     }
 
