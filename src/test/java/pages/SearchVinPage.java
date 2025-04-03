@@ -2,7 +2,6 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import utils.TestData;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
@@ -10,12 +9,11 @@ import static com.codeborne.selenide.Selenide.$;
 public class SearchVinPage {
 
     private final SelenideElement
-            errorSearchResult = $("#error");
+            errorAuthResult = $(".no-login-data-wrap");
 
-    @Step("Проверяем вывод ошибки поиска")
-    public SearchVinPage checkErrorSearchResult(String value) {
-        errorSearchResult.shouldHave(text("Извините, у вас нет прав для использования поиска по Vin/Frame или подбору запчастей по каталогу."));
+    @Step("Проверяем вывод сообщения о необходимости авторизации/регистрации")
+    public SearchVinPage checkErrorAuthResult() {
+        errorAuthResult.shouldHave(text("Для подбора запчастей по по VIN/FRAME, каталогу или гос. номеру необходимо войти в аккаунт или пройти регистрацию."));
         return this;
     }
-
 }
