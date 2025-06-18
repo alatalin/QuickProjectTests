@@ -64,13 +64,13 @@ gradle clean avtopasker_test
 
 ### Запуск тестов на удаленном браузере
 ```
-gradle clean avtopasker_test -DremoteHost="selenoid.autotests.cloud" -DbrowserSize="1920х1080" -Dbrowser="chrome" -DbrowserVersion="128.0"
+gradle clean avtopasker_test -DremoteHost="https://user1:1234@selenoid.autotests.cloud/wd/hub" -DbrowserSize="1920х1080" -Dbrowser="chrome" -DbrowserVersion="128.0"
 ```
 При необходимости также можно переопределить параметры запуска
 
 ```
 clean
--DremoteHost=${REMOTE}
+-DremoteHost=https://${REMOTE_AUTH}@${SELENOID_HOST}/wd/hub
 -DbrowserSize=${BROWSER_SIZE}
 -Dbrowser=${BROWSER}
 -DbrowserVersion=${BROWSER_VERSION}"
