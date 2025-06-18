@@ -14,7 +14,7 @@ public class CartPage {
 
     @Step("Проверяем добавление товара в корзину {value}")
     public CartPage checkAddToCartResult(String value) {
-        contentsOfCart.shouldHave(text("Свеча Finwhale PRO LADA Vesta XRAY FS11 51483"));
+        contentsOfCart.shouldHave(text("{value}"));
         return this;
     }
 

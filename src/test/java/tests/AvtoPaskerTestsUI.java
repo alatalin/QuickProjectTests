@@ -19,9 +19,7 @@ public class AvtoPaskerTestsUI extends TestBase{
 
     @Test
     @DisplayName("Поиск по артикулу")
-    @Tags({
-           @Tag("Positive")
-    })
+    @Tag("Positive")
     public void successfulArticleSearchTest() {
         mainPage.openPage()
                 .setInputSearchText(testData.ARTICLE);
@@ -30,9 +28,7 @@ public class AvtoPaskerTestsUI extends TestBase{
 
     @Test
     @DisplayName("Поиск по тексту")
-    @Tags({
-            @Tag("Positive")
-    })
+    @Tag("Positive")
     public void successfulTextSearchTest() {
         mainPage.openPage()
                 .setInputSearchText(testData.SEARCH_TEXT);
@@ -41,9 +37,7 @@ public class AvtoPaskerTestsUI extends TestBase{
 
     @Test
     @DisplayName("Поиск по VIN незарегистрированным/неавторизованным пользователем")
-    @Tags({
-            @Tag("Negative")
-    })
+    @Tag("Negative")
     public void unsuccessfulVINSearchTest() {
         mainPage.openPage()
                 .setInputSearchVIN(testData.VIN);
@@ -52,9 +46,7 @@ public class AvtoPaskerTestsUI extends TestBase{
 
     @Test
     @DisplayName("Поиск по бренду в каталоге")
-    @Tags({
-            @Tag("Positive")
-    })
+    @Tag("Positive")
     public void successfulBrandSearchTest() {
         mainPage.openPage()
                 .searchBrandButtonClick();
@@ -64,9 +56,7 @@ public class AvtoPaskerTestsUI extends TestBase{
 
     @Test
     @DisplayName("Поиск по автомобилю незарегистрированным/неавторизованным пользователем в каталоге")
-    @Tags({
-            @Tag("Negative")
-    })
+    @Tag("Negative")
     public void unsuccessfulCarBrandSearchTest() {
         mainPage.openPage()
                 .searchCarBrandButtonClick();
@@ -76,9 +66,7 @@ public class AvtoPaskerTestsUI extends TestBase{
 
     @Test
     @DisplayName("Поиск по гос. номеру незарегистрированным/неавторизованным пользователем в каталоге")
-    @Tags({
-            @Tag("Negative")
-    })
+    @Tag("Negative")
     public void unsuccessfulCarLicenseNumberSearchTest() {
         mainPage.openPage()
                 .setInputCarNumber(testData.CAR_NUMBER)
@@ -88,9 +76,7 @@ public class AvtoPaskerTestsUI extends TestBase{
 
     @Test
     @DisplayName("Добавление товара в корзину")
-    @Tags({
-            @Tag("Positive")
-    })
+    @Tag("Positive")
     public void successfulAddToCartTest() {
         mainPage.openPage()
                 .setInputSearchText(testData.ARTICLE);
@@ -102,9 +88,7 @@ public class AvtoPaskerTestsUI extends TestBase{
 
     @Test
     @DisplayName("Удаление товара из корзины")
-    @Tags({
-            @Tag("Positive")
-    })
+    @Tag("Positive")
     public void successfulRemoveFromCartTest() {
         mainPage.openPage()
                 .setInputSearchText(testData.ARTICLE);
