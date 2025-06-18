@@ -14,7 +14,7 @@ public class CartPage {
 
     @Step("Проверяем добавление товара в корзину {value}")
     public CartPage checkAddToCartResult(String value) {
-        contentsOfCart.shouldHave(text("{value}"));
+        contentsOfCart.shouldHave(text(value));
         return this;
     }
 
